@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "Larita1*",
+    "database": "trykedb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "Larita1*",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",

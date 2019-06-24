@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
   port: 8080,
   user: "root",
   password: "ipod115s",
-  database: ""
+  database: "trykedb"
 });
 
 // Make connection.

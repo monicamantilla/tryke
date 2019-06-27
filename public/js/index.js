@@ -1,5 +1,29 @@
 $(document).ready(function(){
 
+  var indexContainer = $(".index-container");
+  var postCategorySelect = $("#category");
+
+  $(document).on("click", "button.delete", handlePostDelete);
+  $(document).on("click", "button.edit", handlePostEdit);
+
+  var posts;
+
+  var url = window.location.search;
+  var titleId;
+  if (url.indexOf("?title_id=") !== -1) {
+    titleId = url.split("=")[1];
+    getPosts(titleId);
+  }
+  else {
+    getPosts()
+  }
+
+  function getPosts(title) {
+  titleId = title || "";
+  if (titleId) {
+    titleId = 
+  }
+  }
 })
 
 

@@ -59,11 +59,11 @@ $(document).ready(function() {
   function getPostData(id, type) {
     var queryUrl;
     switch (type) {
-      case "post":
-        queryUrl = "/api/posts/" + id;
-        break;
-      default:
-        return;
+    case "post":
+      queryUrl = "/api/posts/" + id;
+      break;
+    default:
+      return;
     }
     $.get(queryUrl, function(data) {
       if (data) {

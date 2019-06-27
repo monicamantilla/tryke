@@ -4,8 +4,8 @@ module.exports = function(app) {
   app.get("/api/titles", function(req, res) {
     db.Author.findAll({
       include: [db.Post]
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
+    }).then(function(dbTitle) {
+      res.json(dbTitle);
     });
   });
 
@@ -15,14 +15,14 @@ module.exports = function(app) {
         id: req.params.id
       },
       include: [db.Post]
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
+    }).then(function(dbTitle) {
+      res.json(dbTitle);
     });
   });
 
   app.post("/api/titles", function(req, res) {
-    db.Author.create(req.body).then(function(dbAuthor) {
-      res.json(dbAuthor);
+    db.Author.create(req.body).then(function(dbTitle) {
+      res.json(dbTitle);
     });
   });
 

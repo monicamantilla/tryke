@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 $(document).ready(function() {
   var titleInput = $("#title");
   var partyInput = $("#party");
@@ -5,11 +6,12 @@ $(document).ready(function() {
   var addressInput = $("#address");
   var zipInput = $("#zip");
   var descriptionInput = $("#description");
-  var postForm = $("#main-form");
+  var makeForm = $("#main-form");
 
-  $(postForm).on("submit", handleFormSubmit);
+  $(makeForm).on("submit", handleFormSubmit);
   var url = window.location.search;
   var postId;
+  var titleId;
   var updating = false;
 
   if (url.indexOf("?post_id=") !== -1) {
@@ -59,11 +61,14 @@ $(document).ready(function() {
   function getPostData(id, type) {
     var queryUrl;
     switch (type) {
-    case "post":
-      queryUrl = "/api/posts/" + id;
-      break;
-    default:
-      return;
+      case "post":
+        queryUrl = "/api/posts/" + id;
+        break;
+      case "title":
+        queryUrl = "/api/titles/" + id;
+        break;
+      default:
+        return;
     }
     $.get(queryUrl, function(data) {
       if (data) {
@@ -74,10 +79,39 @@ $(document).ready(function() {
         addressInput.val(data.address);
         zipInput.val(data.zip);
         descriptionInput.val(data.description);
+        titleId = data.TitleId || data.id;
         updating = true;
       }
     });
   }
+
+  function getTitles() {
+    $.get("/api/titles", renderTitleList);
+  }
+
+  function renderTitleList(data) {
+    if (!data.length) {
+      window.location.href = "/titles";
+    }
+    $(".hidden").removeClass("hidden");
+    var rowsToAdd = [];
+    for (var i = 0; i < data.length; i++) {
+      rowsToAdd.push(createTitleRow(data[i]));
+    }
+    titleSelect.empty();
+    console.log(rowsToAdd);
+    console.log(titleSelect);
+    titleSelect.append(rowsToAdd);
+    titleSelect.val(titleId);
+  }
+
+  function createTitleRow(title) {
+    var listOption = $("<option>");
+    listOption.attr("value", title.id);
+    listOption.text(title.name);
+    return listOption;
+  }
+
   function updatePost(post) {
     $.ajax({
       method: "PUT",

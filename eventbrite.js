@@ -1,7 +1,7 @@
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
 
 //URL to test
-var queryURL = "https://www.eventbriteapi.com/v3/events/search?location.address=vancovuer&location.within=10km&expand=venue"
+var queryURL = "https://www.eventbriteapi.com/v3/events/search?location.address=vancovuer&orlando.within=10km&expand=venue"
 
 axios
 .get({

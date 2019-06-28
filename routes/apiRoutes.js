@@ -26,6 +26,21 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/api/signup", function(req, res) {
+    db.User.create({
+      username: req.body.userName,
+      password: req.body.userPassword,
+      email: req.body.userEmail,
+      email:req.body.userZip
+    })
+      .then(function() {
+        res.redirect(307, "/api/survey");
+      })
+      .catch(function(err) {
+        res.status(401).json(err);
+      });
+  });
+
   app.delete("/api/titles/:id", function(req, res) {
     db.Author.destroy({
       where: {

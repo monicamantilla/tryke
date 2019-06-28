@@ -38,26 +38,6 @@
             <button type="submit" class="btn btn-warning">Sign in</button>
         </form>
     </div>
-    <script>
-        $(".submit").on("click", function (event) {
-            event.preventDefault();
-
-            var userInfo = {
-                userName: $("#inputUsername").val().trim(),
-                userPassword: $("#inputPassword4").val().trim(),
-                userEmail: $("#inputEmail4").val().trim(),
-                userZip: $("#inputZip").val().trim()
-            };
-            console.log(userInfo);
-            $.post("/api/signup", userInfo,
-                function (data) {
-                    $("#inputUsername").val("");
-                    $("#inputPassword4").val("");
-                    $("#inputEmail4").val("");
-                    $("#inputZip").val("");
-                });
-        });
-    </script>
     <!--username, password, email, zip code-->
 </body>
 

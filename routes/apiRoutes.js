@@ -1,24 +1,53 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Tryke.findAll({}).then(function(dbTryke) {
-      res.json(dbTryke);
+  app.get("/api/titles", function(req, res) {
+    db.Author.findAll({
+      include: [db.Post]
+    }).then(function(dbTitle) {
+      res.json(dbTitle);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Tryke.create(req.body).then(function(dbTryke) {
-      res.json(dbTryke);
+  app.get("/api/titles/:id", function(req, res) {
+    db.Author.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [db.Post]
+    }).then(function(dbTitle) {
+      res.json(dbTitle);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Tryke.destroy({ where: { id: req.params.id } }).then(function(dbTryke) {
-      res.json(dbTryke);
+  app.post("/api/titles", function(req, res) {
+    db.Author.create(req.body).then(function(dbTitle) {
+      res.json(dbTitle);
+    });
+  });
+
+  app.post("/api/signup", function(req, res) {
+    db.User.create({
+      username: req.body.userName,
+      password: req.body.userPassword,
+      email: req.body.userEmail,
+      email:req.body.userZip
+    })
+      .then(function() {
+        res.redirect(307, "/api/survey");
+      })
+      .catch(function(err) {
+        res.status(401).json(err);
+      });
+  });
+
+  app.delete("/api/titles/:id", function(req, res) {
+    db.Author.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbTitle) {
+      res.json(dbTitle);
     });
   });
 };

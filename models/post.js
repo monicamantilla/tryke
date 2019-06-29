@@ -5,27 +5,27 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       validate: {
         len: [1]
-      },
-      address: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        },
-        zip: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          validate: {
-            len: [1]
-          },
-          party: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-              len: [1]
-            }
-          }
-        }
+      }
+    },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    zip: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    party: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [1]
       }
     },
     body: {

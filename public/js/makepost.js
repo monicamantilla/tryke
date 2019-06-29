@@ -6,7 +6,7 @@ $(document).ready(function() {
   var zipInput = $("#zip");
   var partyInput = $("#party");
   var makepostForm = $("#makepost");
-  var userSelect = $("#user");
+  var userSelect = $("#confirm");
   $(makepostForm).on("submit", handleFormSubmit);
   // Gets the part of the url that comes after the "?" (which we have if we're updating a post)
   var url = window.location.search;
@@ -47,7 +47,7 @@ $(document).ready(function() {
       zip: zipInput.val().trim(),
       party: partyInput.val().trim(),
       body: bodyInput.val().trim(),
-      UserId: userSelect.val()
+      confirm: userSelect.val()
     };
 
     // If we're updating a post run updatePost to update a post
@@ -62,8 +62,13 @@ $(document).ready(function() {
 
   // Submits a new post and brings user to blog page upon completion
   function submitPost(post) {
-    $.post("/api/posts", post, function() {
-      window.location.href = "/home";
+    $.post("/api/posts", post, function(data) {
+      console.log(data);
+      if (data === "password") {
+        alert("incorrect password");
+      } else {
+        window.location.href = "/home";
+      }
     });
   }
 
@@ -99,7 +104,9 @@ $(document).ready(function() {
 
   // A function to get Authors and then render our list of Authors
   function getUsers() {
-    $.get("/api/users", renderUserList);
+    $.get("/api/users", function(data) {
+      renderUserList(data);
+    });
   }
   // Function to either render a list of authors, or if there are none, direct the user to the page
   // to create an author first

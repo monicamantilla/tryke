@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $(".submit").on("click", function(event) {
+  $("#sign").on("click", function(event) {
     event.preventDefault();
 
     var userInfo = {
@@ -31,12 +31,10 @@ $(document).ready(function() {
       userInfo.userEmail,
       userInfo.userZip
     );
-    userInfo.userName("");
-    userInfo.userPassword("");
-    userInfo.userEmail("");
-    userInfo.userZip("");
-
-    console.log(userInfo);
+    // userName.val("");
+    // userPassword.val("");
+    // userEmail.val("");
+    // userZip.val("");
 
     function signUpUser(userName, userPassword, userEmail, userZip) {
       $.post("/api/signup", {
@@ -45,11 +43,11 @@ $(document).ready(function() {
         userEmail: userEmail,
         userZip: userZip
       })
-        .then(function(data) {
-          window.location.replace("/signup");
+        .done(function() {
+          window.location.replace("/home");
           // If there's an error, handle it by throwing up a bootstrap alert
         })
-        .catch(handleLoginErr);
+        .fail(handleLoginErr);
     }
 
     function handleLoginErr(err) {

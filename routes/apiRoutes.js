@@ -45,8 +45,26 @@ module.exports = function(app) {
 
   // POST route for saving a new post
   app.post("/api/posts", function(req, res) {
-    db.Post.create(req.body).then(function(dbPost) {
-      res.json(dbPost);
+    db.User.findOne({
+      where: {
+        password: req.body.confirm
+      }
+    }).then(function(data) {
+      if (!data) {
+        res.json("password");
+      } else {
+        console.log(data.id);
+        db.Post.create({
+          title: req.body.title,
+          address: req.body.address,
+          zip: req.body.zip,
+          party: req.body.party,
+          body: req.body.body,
+          UserId: data.id
+        }).then(function(dbPost) {
+          res.json(dbPost);
+        });
+      }
     });
   });
 

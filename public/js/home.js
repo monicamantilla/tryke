@@ -61,6 +61,9 @@ $(document).ready(function() {
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
     newPostTitle.text(post.title + " ");
+    newPostAddress.text(post.address);
+    newPostZip.text("Zip Code: " + post.zip);
+    newPostParty.text("Party Size: " + post.party);
     newPostBody.text(post.body);
     newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);

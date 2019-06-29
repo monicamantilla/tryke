@@ -1,54 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-    <form id="#main-form">
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Post Title</label>
-        <input type="text" class="form-control" id="title" placeholder="What's going on?">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Make a Post</title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container hidden">
+		<div class="row top-30">
+      <div class="col-md-2 col-sm-2">
+        <a class="btn btn-light" href="/home">Home</a>
+      </div>
+      <div class="col-md-2 col-sm-2">
+        <a class="btn btn-light" href="/users">Manage Users</a>
+      </div>
     </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Party Size</label>
-        <select class="form-control" id="party">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">Group Event (6 or more people)</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect2">Event</label>
-        <input type="text" class="form-control" id="event" placeholder="What are you doing?">
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect2">Address of the Event</label>
-      <input type="text" class="form-control" id="address" placeholder="Where is it happening?">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect2">Zip Code of the Event</label>
-    <input type="text" class="form-control" id="zip" placeholder="NOTE: only those in your local area will see this post">
-</div>
-    <div class="form-group">
-        <label for="exampleFormControlTextarea1">Description</label>
-        <textarea class="form-control" id="description" rows="3" placeholder="Describe the event in detail"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-      
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../js/makepost.js" type="text/javascript"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<form id="makepost">
+					<div class="form-group">
+						<label for="title">Event Title:</label>
+                        <input placeholder="Post Title" type="text" class="form-control" id="title">
+                        <label for="title">Address:</label>
+                        <input placeholder="Address of the event" type="text" class="form-control" id="address">
+                        <label for="title">Zip Code:</label>
+                        <input placeholder="Zip Code of the Event (only locals can attend)" type="number" class="form-control" id="zip">
+                        <label for="title">Party Size:</label>
+						<input placeholder="How Big Is your event" type="number" class="form-control" id="party">
+						<br />
+						<label for="body">Description:</label>
+						<textarea placeholder="Describe your event in detail" class="form-control" rows="10" id="body"></textarea>
+						<div class="form-group">
+							<label for="category">Confirm Password: </label>
+							<input class="form-control" id="confirm">
+  						</select>
+						</div>
+						<br />
+                        <button type="submit" class="btn btn-warning submit">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Custom Script -->
+	<script src="js/makepost.js" type="text/javascript"></script>
+
+</body>
+
 </html>

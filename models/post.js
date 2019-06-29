@@ -7,6 +7,27 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    zip: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    party: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
     body: {
       type: DataTypes.TEXT,
       allowNull: false,
@@ -15,7 +36,9 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Post.associate = function(models) {
-    Post.belongsTo(models.Title, {
+    // We're saying that a Post should belong to an Author
+    // A Post can't be created without an Author due to the foreign key constraint
+    Post.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }

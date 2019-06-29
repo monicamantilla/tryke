@@ -1,49 +1,57 @@
 /* eslint-disable indent */
 $(document).ready(function() {
+  var bodyInput = $("#body");
   var titleInput = $("#title");
-  var partyInput = $("#party");
-  var eventInput = $("#event");
   var addressInput = $("#address");
   var zipInput = $("#zip");
-  var descriptionInput = $("#description");
-  var makeForm = $("#main-form");
-
-  $(makeForm).on("submit", handleFormSubmit);
+  var partyInput = $("#party");
+  var makepostForm = $("#makepost");
+  var userSelect = $("#user");
+  $(makepostForm).on("submit", handleFormSubmit);
+  // Gets the part of the url that comes after the "?" (which we have if we're updating a post)
   var url = window.location.search;
   var postId;
-  var titleId;
+  var userId;
+  // Sets a flag for whether or not we're updating a post to be false initially
   var updating = false;
 
+  // If we have this section in our url, we pull out the post id from the url
+  // In '?post_id=1', postId is 1
   if (url.indexOf("?post_id=") !== -1) {
     postId = url.split("=")[1];
     getPostData(postId, "post");
-  } else if (url.indexOf("?title_id=") !== -1) {
-    titleId = url.split("=")[1];
+  }
+  // Otherwise if we have an author_id in our url, preset the author select box to be our Author
+  else if (url.indexOf("?user_id=") !== -1) {
+    userId = url.split("=")[1];
   }
 
-  getTitles();
+  // Getting the authors, and their posts
+  getUsers();
 
+  // A function for handling what happens when the form to create a new post is submitted
   function handleFormSubmit(event) {
     event.preventDefault();
+    // Wont submit the post if we are missing a body, title, or author
     if (
       !titleInput.val().trim() ||
-      !partyInput.val().trim() ||
-      !eventInput.val().trim() ||
-      !addressInput.val().trim() ||
-      !zipInput.val().trim() ||
-      !descriptionInput.val().trim()
+      !bodyInput.val().trim() ||
+      !userSelect.val()
     ) {
       return;
     }
-
+    // Constructing a newPost object to hand to the database
     var newPost = {
       title: titleInput.val().trim(),
-      party: partyInput.val().trim(),
-      event: eventInput.val().trim(),
       address: addressInput.val().trim(),
       zip: zipInput.val().trim(),
-      description: descriptionInput.val().trim()
+      party: partyInput.val().trim(),
+      body: bodyInput.val().trim(),
+      UserId: userSelect.val()
     };
+
+    // If we're updating a post run updatePost to update a post
+    // Otherwise run submitPost to create a whole new post
     if (updating) {
       newPost.id = postId;
       updatePost(newPost);
@@ -52,73 +60,81 @@ $(document).ready(function() {
     }
   }
 
+  // Submits a new post and brings user to blog page upon completion
   function submitPost(post) {
     $.post("/api/posts", post, function() {
-      window.location.href = "/index";
+      window.location.href = "/home";
     });
   }
 
+  // Gets post data for the current post if we're editing, or if we're adding to an author's existing posts
   function getPostData(id, type) {
     var queryUrl;
     switch (type) {
       case "post":
         queryUrl = "/api/posts/" + id;
         break;
-      case "title":
-        queryUrl = "/api/titles/" + id;
+      case "user":
+        queryUrl = "/api/users/" + id;
         break;
       default:
         return;
     }
     $.get(queryUrl, function(data) {
       if (data) {
-        console.log(data.TitleId || data.id);
+        console.log(data.UserId || data.id);
+        // If this post exists, prefill our makepost forms with its data
         titleInput.val(data.title);
-        partyInput.val(data.party);
-        eventInput.val(data.event);
         addressInput.val(data.address);
         zipInput.val(data.zip);
-        descriptionInput.val(data.description);
-        titleId = data.TitleId || data.id;
+        partyInput.val(data.party);
+        bodyInput.val(data.body);
+        userId = data.UserId || data.id;
+        // If we have a post with this id, set a flag for us to know to update the post
+        // when we hit submit
         updating = true;
       }
     });
   }
 
-  function getTitles() {
-    $.get("/api/titles", renderTitleList);
+  // A function to get Authors and then render our list of Authors
+  function getUsers() {
+    $.get("/api/users", renderUserList);
   }
-
-  function renderTitleList(data) {
+  // Function to either render a list of authors, or if there are none, direct the user to the page
+  // to create an author first
+  function renderUserList(data) {
     if (!data.length) {
-      window.location.href = "/titles";
+      window.location.href = "/users";
     }
     $(".hidden").removeClass("hidden");
     var rowsToAdd = [];
     for (var i = 0; i < data.length; i++) {
-      rowsToAdd.push(createTitleRow(data[i]));
+      rowsToAdd.push(createUserRow(data[i]));
     }
-    titleSelect.empty();
+    userSelect.empty();
     console.log(rowsToAdd);
-    console.log(titleSelect);
-    titleSelect.append(rowsToAdd);
-    titleSelect.val(titleId);
+    console.log(userSelect);
+    userSelect.append(rowsToAdd);
+    userSelect.val(userId);
   }
 
-  function createTitleRow(title) {
+  // Creates the author options in the dropdown
+  function createUserRow(user) {
     var listOption = $("<option>");
-    listOption.attr("value", title.id);
-    listOption.text(title.name);
+    listOption.attr("value", user.id);
+    listOption.text(user.name);
     return listOption;
   }
 
+  // Update a given post, bring user to the blog page when done
   function updatePost(post) {
     $.ajax({
       method: "PUT",
       url: "/api/posts",
       data: post
     }).then(function() {
-      window.location.href = "/index";
+      window.location.href = "/home";
     });
   }
 });

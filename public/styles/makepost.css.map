@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,IAAI,CAAC;EACD,UAAU,EAHE,qCAAqC;CAIpD;;AAED,AAAA,OAAO,CAAC;EACJ,YAAY,EAAE,KAAK;EACnB,YAAY,EAAE,GAAG;EACjB,YAAY,EAAE,MAAM;EACpB,gBAAgB,EAAE,KAAK;CACxB;;AAED,AAAA,KAAK,CAAC;EACJ,WAAW,EAAE,GAAG;CACjB;;AAED,AAAA,KAAK,CAAC;EACJ,YAAY,EAAE,GAAG;CAClB",
+    "sources": [
+        "makepost.scss"
+    ],
+    "names": [],
+    "file": "makepost.css"
+}

@@ -8,16 +8,18 @@ body {
     border-style: solid;
     border-width: 5px;
     border-color: orange;
-    background-color: black;
-  }
-  
-  #sign {
-    margin-left: -5%;
-  }
-  
-  #make {
-    margin-right: -3%;
-  }
+    border-radius: 20px;
+    background-color: black
+}
+
+#sign{
+    margin-left: -5%
+}
+
+#make{
+    margin-right: -3%
+}
+
 
   #signIn {
       margin-left: 0.3%

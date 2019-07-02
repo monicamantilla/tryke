@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // Home container will contain all of our user posts
   var homeContainer = $(".home-container");
   var posts;
 
@@ -10,7 +11,7 @@ $(document).ready(function() {
   } else {
     getPosts();
   }
-
+  // here we get all of our posts
   function getPosts(user) {
     userId = user || "";
     if (userId) {
@@ -26,8 +27,7 @@ $(document).ready(function() {
       }
     });
   }
-
-  // InitializeRows handles appending all of our constructed post HTML inside blogContainer
+  // We create the rows for how many posts that are in the database
   function initializeRows() {
     homeContainer.empty();
     var postsToAdd = [];
@@ -36,8 +36,7 @@ $(document).ready(function() {
     }
     homeContainer.append(postsToAdd);
   }
-
-  // This function constructs a post's HTML
+  // this creates then new rows and posts for all of the user posts
   function createNewRow(post) {
     var formattedDate = new Date(post.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
@@ -46,8 +45,8 @@ $(document).ready(function() {
     var newPostCardHeading = $("<div>");
     newPostCardHeading.addClass("card-header");
     var newPostTitle = $("<h2>");
-    var newPostAddress = $("<h3>");
-    var newPostZip = $("<h4>");
+    var newPostAddress = $("<h5>");
+    var newPostZip = $("<h5>");
     var newPostParty = $("<h5>");
     var newPostDate = $("<small>");
     var newPostUser = $("<h5>");
@@ -78,8 +77,7 @@ $(document).ready(function() {
     newPostCard.data("post", post);
     return newPostCard;
   }
-
-  // This function displays a message when there are no posts
+  // this is going to display a message of there is nothing to display
   function displayEmpty(id) {
     var query = window.location.search;
     var partial = "";
@@ -90,7 +88,7 @@ $(document).ready(function() {
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
     messageH2.html(
-      "No one is here yet" +
+      "No posts yet" +
         partial +
         ", get the party started <a href='/makepost" +
         query +

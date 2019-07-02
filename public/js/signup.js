@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $("#sign").on("click", function(event) {
+  $("#signIn").on("click", function(event) {
     event.preventDefault();
 
     var userInfo = {

@@ -4,15 +4,34 @@ body {
     background: $backgroundImg
 };
 
-.navBar {
+  #signIn {
+      margin-left: 0.3%
+  }
+
+  form{
+      background-color: black;
+      border-style: solid;
+    border-width: 2px;
+    border-color: orange;
+    border-radius: 20px;
+    color: orange;
+    margin-bottom: 1%;
+    padding-right: 1%;
+    padding-left: 1%
+  }
+
+  .navBar {
     border-style: solid;
     border-width: 5px;
     border-color: orange;
     border-radius: 20px;
-    background-color: black
+    background-color: black;
+    margin-left: 9%;
+    margin-right: 9%;
+    margin-bottom: 1%
 }
 
-#sign{
+#signUp{
     margin-left: -5%
 }
 
@@ -20,7 +39,6 @@ body {
     margin-right: -3%
 }
 
-
-  #signIn {
-      margin-left: 0.3%
-  }
+#signIn{
+  margin-bottom: 1% 
+}

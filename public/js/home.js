@@ -46,8 +46,8 @@ $(document).ready(function() {
     var newPostCardHeading = $("<div>");
     newPostCardHeading.addClass("card-header");
     var newPostTitle = $("<h2>");
-    var newPostAddress = $("<h3>");
-    var newPostZip = $("<h4>");
+    var newPostAddress = $("<h5>");
+    var newPostZip = $("<h5>");
     var newPostParty = $("<h5>");
     var newPostDate = $("<small>");
     var newPostUser = $("<h5>");

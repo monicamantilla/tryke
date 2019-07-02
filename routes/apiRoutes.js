@@ -1,8 +1,8 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // GET route for getting all of the posts
-  app.get("/api/posts", function(req, res) {
+  app.get("/api/posts", function (req, res) {
     var query = {};
     if (req.query.user_id) {
       query.UserId = req.query.user_id;
@@ -13,13 +13,13 @@ module.exports = function(app) {
     db.Post.findAll({
       where: query,
       include: [db.User]
-    }).then(function(dbPost) {
+    }).then(function (dbPost) {
       res.json(dbPost);
     });
   });
 
   // Get route for retrieving a single post
-  app.get("/api/posts/:id", function(req, res) {
+  app.get("/api/posts/:id", function (req, res) {
     // Here we add an "include" property to our options in our findOne query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Author
@@ -28,18 +28,18 @@ module.exports = function(app) {
         id: req.params.id
       },
       include: [db.User]
-    }).then(function(dbPost) {
+    }).then(function (dbPost) {
       res.json(dbPost);
     });
   });
 
   // POST route for saving a new post
-  app.post("/api/posts", function(req, res) {
+  app.post("/api/posts", function (req, res) {
     db.User.findOne({
       where: {
         password: req.body.confirm
       }
-    }).then(function(data) {
+    }).then(function (data) {
       if (!data) {
         res.json("password");
       } else {
@@ -51,7 +51,7 @@ module.exports = function(app) {
           party: req.body.party,
           body: req.body.body,
           UserId: data.id
-        }).then(function(dbPost) {
+        }).then(function (dbPost) {
           res.json(dbPost);
         });
       }
@@ -59,24 +59,44 @@ module.exports = function(app) {
   });
 
   // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function(req, res) {
+  app.delete("/api/posts/:id", function (req, res) {
     db.Post.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbPost) {
+    }).then(function (dbPost) {
       res.json(dbPost);
     });
   });
 
   // PUT route for updating posts
-  app.put("/api/posts", function(req, res) {
+  app.put("/api/posts", function (req, res) {
     db.Post.update(req.body, {
       where: {
         id: req.body.id
       }
-    }).then(function(dbPost) {
+    }).then(function (dbPost) {
       res.json(dbPost);
     });
   });
+
+  app.get("/home", function (req, res) {
+    axios.get("http://api.eventful.com/json/events/search?location=Orlando&app_key=jMgXTBXqCM9tPCNb")
+      .then(function (response) {
+
+        console.log(response.data.events.event[0].description);
+
+      });
+
+    var response = response.data.events.event
+
+    for (var i = 0; i < 10; i++) {
+      var title = document.createElement("h1").text(response[i].title)
+      var description = document.createElement("h1").text(response[i].description);
+      var image = document.createElement("IMG").attr("src", response.image);
+
+    }
+    document.getElementById("events").appendChild(title, description, image)
+  })
 };
+

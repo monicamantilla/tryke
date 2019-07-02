@@ -1,5 +1,4 @@
 var db = require("../models");
-var usersData = require("../data/usersData");
 
 module.exports = function(app) {
   app.get("/api/posts", function(req, res) {
@@ -69,41 +68,6 @@ module.exports = function(app) {
     }).then(function(dbPost) {
       res.json(dbPost);
     });
-  });
-
-  app.get("/api/usersData", function(req, res) {
-    res.json(usersData);
-  });
-
-  app.post("/api/usersData", function(req, res) {
-    console.log(req.body.number);
-    var input = req.body;
-    for (i = 0; i < input.number.length; i++) {
-      input.number[i] = parseInt(input.number[i]);
-    }
-
-    var defaultUser = 0;
-
-    var minDiff = 25;
-
-    for (i = 0; i < usersData.length; i++) {
-      var totDiff = 0;
-      for (j = 0; j < usersData[i].number.length; j++) {
-        var diff = Math.abs(input.number[j] - usersData[i].number[j]);
-        totDiff += diff;
-      }
-      if (totDiff < minDiff) {
-        defaultUser = i;
-        minDiff = totDiff;
-      }
-    }
-    usersData.push(input);
-    res.json(usersData[defaultUser]);
-  });
-
-  app.post("/api/clear", function(req, res) {
-    usersData.length = 0;
-    res.json({ ok: true });
   });
 
   app.get("/home", function(req, res) {

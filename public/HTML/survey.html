@@ -1,408 +1,244 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <title>Survey</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tryke Survey</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="../assets/css/style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-
-<body id="survey">
-        <div class="all"></div>
-        <div class="content">
-            <h1>Survey</h1>
-            <h3>Fill out the form below and hit submit to find your event tonight</h3>
-            <form>
-                <div class="card">
-                    <div class ="card-body">
-                            <h1>Questions:</h1>
-    
-                            <div class="selects">
-                                <div class="selectQ">
-                                    <label for="first">What is your age?</label>
-                                    <br>
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio1">18 to 24 Years Old</label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">25 to 30 Years Old
-                                        </label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">31 to 40 Years Old</label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">41 to 50 Years Old</label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">Over 51 Years Old</label>
-                                      </div>
-                                </div>
-                                <div class="selectQ">
-                                    <label for="second">How many hours a week do you listen to music?</label>
-                                    <br>
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio1">0-4 hours per week</label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">5-9 hours per week</label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">10-14 hours per week</label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">15-19 hours per week</label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">Over 20 hours per week</label>
-                                      </div>
-                                </div>
-                                <div class="selectQ">
-                                    <label for="first">How likely are you to recommend music to a friend that you believe would like it?</label>
-                                    <br>
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio1">1 (not likely)</label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">2</label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">3</label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">4</label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">5 (very likely)</label>
-                                      </div>
-                                </div>
-                                <div class="selectQ">
-                                    <label for="fourth">What type of music do you typically listen to?</label>
-                                    <br>
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio1">Rock/Alternative/Metal</label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">Rap/Hip-Hop</label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">Classical/Jazz</label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">EDM</label>
-                                      </div>
-                                      <div class="custom-control custom-radio">
-                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2">Country/Bluegrass</label>
-                                      </div>
-                                </div>
-                                <div class="selectQ">
-                                    <label for="fifth">What platform do you use to stream music online?</label>
-                                    <br>
-                                    <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Soundcloud</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">	Apple Music</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Spotify</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Tidal</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">	Youtube</label>
-                                          </div>
-                                <div class="selectQ">
-                                    <label for="sixth">What is the word people would most likely use to describe you?</label>
-                                    <br>
-                                    <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Smart</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Impulsive</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">All of the Above</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Quiet</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Kind</label>
-                                          </div>
-                                </div>
-                                <div class="selectQ">
-                                    <label for="seventh">How likely are you to blow all your money on an impulse buy?</label>
-                                    <br>
-                                    <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Least Likely</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Not Likely</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Not Sure</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Likely</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Most likely</label>
-                                          </div>
-                                </div>
-                                <div class="selectQ">
-                                    <label for="eigth">How likely are you going to order pizza within next 24 hours?</label>
-                                    <br>
-                                    <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Least Likely</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Not Likely</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Not Sure</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Likely</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Most likely</label>
-                                          </div>
-                                </div>
-                                <div class="selectQ">
-                                    <label for="ninth">How likely are you to get a puppy?</label>
-                                    <br>
-                                    <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Least Likely</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Not Likely</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Not Sure</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Likely</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Most likely</label>
-                                          </div>
-                                </div>
-                                <div class="selectQ">
-                                        <label for="tenth">Most likely to lock yourself out of the house?</label>
-                                        <br>
-                                        <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio1">Least Likely</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Not Likely</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Not Sure</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Likely</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Most likely</label>
-                                              </div>
-                                    </div>
-                                </div>
-                                <div class="selectQ">
-                                        <label for="eleven">If you had to run away from everyone where would you hide?</label>
-                                        <br>
-                                        <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio1">A van down by the river</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Treehouse in the woods</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Not Sure</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Abandoned House</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">In your house</label>
-                                              </div>
-                                    </div>
-                                </div>
-                                <div class="selectQ">
-                                        <label for="tweleve">What do you think is the cleverest animal?</label>
-                                        <br>
-                                        <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio1">Dolphin</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Orca</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Not Sure</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Gorilla</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Elephant</label>
-                                              </div>
-                                    </div>
-                                </div>
-                                <div class="selectQ">
-                                        <label for="thirteen">Which was your favorite cartoon growing up?</label>
-                                        <br>
-                                        <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio1">Arthur</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Spongebob</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Not Sure, didn't watch cartoons</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Dexter's Laboratory</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Rugrats</label>
-                                              </div>
-                                    </div>
-                                </div>
-                                <div class="selectQ">
-                                        <label for="fourteen">Would you abandon your phone, internet, family and friends for three months for a prize of 1 million dollars?</label>
-                                        <br>
-                                        <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio1">Least Likely</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Not Likely</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Not Sure</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Likely</label>
-                                              </div>
-                                              <div class="custom-control custom-radio">
-                                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                <label class="custom-control-label" for="customRadio2">Most likely</label>
-                                              </div>
-                                    </div>
-                                </div>
-                                <div class="selectQ">
-                                    <label for="Fifteen">What is the worst topping to put on a pizza?</label>
-                                    <br>
-                                    <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Pineapple</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Any meat!</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Not Sure</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Mushrooms</label>
-                                          </div>
-                                          <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Olives</label>
-                                          </div>
-                                </div>
-                                </div>
-                            </div>
-                    </div>
+  </head>
+  <body>
+        <div class="jumbotron">
+                <h1 class="display-4">Answer some questions and we'll help you get started!</h1>
+              </div>
+        <div class="card">
+                <div class="card-header">
+                        Question 1
                 </div>
-            </form>
+                <div class="card-body">
+                  <h5 class="card-title">How often do you listen to metal music? (1: Never, 5: All the time).</h5>
+                  <select class="form-control" id="question1">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                </div>
+              </div>
+              <div class="card">
+                    <div class="card-header">
+                            Question 2
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">How often do you listen to pop music? (1: Never, 5: All the time).</h5>
+                      <select class="form-control" id="question2">
+                             <option value="1">1</option>
+                             <option value="2">2</option>
+                             <option value="3">3</option>
+                             <option value="4">4</option>
+                             <option value="5">5</option>
+                          </select>
+                    </div>
+                  </div>
+                  <div class="card">
+                        <div class="card-header">
+                                Question 3
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">How often do you listen to rap music? (1: Never, 5: All the time).</h5>
+                          <select class="form-control" id="question3">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                              </select>
+                        </div>
+                      </div>
+                      <div class="card">
+                            <div class="card-header">
+                                    Question 4
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">How often do you go to a resurant? (1: Never, 5: All the time).</h5>
+                              <select class="form-control" id="question4">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                  </select>
+                            </div>
+                          </div>
+                          <div class="card">
+                                <div class="card-header">
+                                        Question 5
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">How often do you go to a theme park? (1: Never, 5: All the time).</h5>
+                                  <select class="form-control" id="question5">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                      </select>
+                                </div>
+                              </div>
+                              <div class="card">
+                                    <div class="card-header">
+                                            Question 6
+                                    </div>
+                                    <div class="card-body">
+                                      <h5 class="card-title">How often do you hang out with your neighbors? (1: Never, 5: All the time).</h5>
+                                      <select class="form-control" id="question6">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                          </select>
+                                    </div>
+                                  </div>
+                                  <div class="card">
+                                        <div class="card-header">
+                                                Question 7
+                                        </div>
+                                        <div class="card-body">
+                                          <h5 class="card-title">How often do you spend time around others? (1: Never, 5: All the time).</h5>
+                                          <select class="form-control" id="question7">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                              </select>
+                                        </div>
+                                      </div>
+                                      <div class="card">
+                                            <div class="card-header">
+                                                    Question 8
+                                            </div>
+                                            <div class="card-body">
+                                              <h5 class="card-title">How often do you spend time by yourself? (1: Never, 5: All the time).</h5>
+                                              <select class="form-control" id="question8">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                  </select>
+                                            </div>
+                                          </div>
+                                          <div class="card">
+                                                <div class="card-header">
+                                                        Question 9
+                                                </div>
+                                                <div class="card-body">
+                                                  <h5 class="card-title">How often do you spend time with your family? (1: Never, 5: All the time).</h5>
+                                                  <select class="form-control" id="question9">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                      </select>
+                                                </div>
+                                              </div>
+                                                  <a class="btn btn-warning btn-lg" id="sur-submit" href="#" role="button">Submit</a>
 
-        </body>
+                                                  <div id="modal" class="modal fade" role="dialog">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                    <h3 class="modal-title">Meet Your New Match!</h1>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <h2 id="user"></h2>
+                                                                    <img id="userPhoto" src="#">
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+<style>
+.jumbotron{
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 1%;
+}
+.card{
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 1%;
+}
+#sur-submit{
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding-right: 76.9%;
+}
+#top-form{
+    margin-left: 8%;
+    margin-right: 8%;
+}
+#survey{
+    margin-top: 1%;
+}
+</style>
+<script>
+$("#sur-submit").on("click", function(event){
+    event.preventDefault(); //preventing the page from refreshing
+
+    var complete = true; // We are going to ensure that the survey is complete
+
+
+    if($("#name").val() === "" || $("#link").val() === ""){
+        complete = false; // If there isn't a name or link for a photo, then we aren't gonna send the info to the array or give a result
+    }
+
+    if(complete === true){ 
+        var user = { // we are retriving the values from all user input sources
+            name: $("#name").val().trim(),
+            link: $("#link").val().trim(),
+            number: [ 
+                    $("#question1").val(),
+					$("#question2").val(),
+					$("#question3").val(),
+					$("#question4").val(),
+					$("#question5").val(),
+					$("#question6").val(),
+					$("#question7").val(),
+					$("#question8").val(),
+					$("#question9").val(),
+            ]
+        };
+        // url functions
+        var url = window.location.origin;
+        //Posting the data for the modal to the user
+        $.post(url + "/api/usersData", user, function(data){
+            $("#user").text(data.name)
+            $("#userPhoto").attr("src", data.link)
+            $("#modal").modal("toggle")
+        });
+    } else { //if the survey is incomplete then it will give an alert to the user
+        alert("Please Complete the Survey")
+    }
+})
+</script>

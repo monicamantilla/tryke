@@ -8,13 +8,30 @@ body {
   border-color: orange;
   border-radius: 20px;
   background-color: black;
+  margin-left: 9%;
+  margin-right: 9%;
+  margin-bottom: 1%;
 }
 
-#sign {
+#signUp {
   margin-left: -5%;
 }
 
 #make {
   margin-right: -3%;
+}
+
+.row {
+  margin-left: 9%;
+  margin-right: 9%;
+}
+
+.card {
+  margin-bottom: 1%;
+  background-color: black;
+  color: orange;
+  border-width: 5px;
+  border-color: orange;
+  border-radius: 20px;
 }
 /*# sourceMappingURL=home.css.map */

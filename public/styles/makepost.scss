@@ -12,10 +12,20 @@ body {
     background-color: black
 }
 
-#sign{
+#signUp{
     margin-left: -5%
 }
 
 #make{
     margin-right: -3%
+}
+
+.row {
+    background-color: black;
+    margin-top: 1%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: orange;
+    border-radius: 20px;
+    color: orange
 }

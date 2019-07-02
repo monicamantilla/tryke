@@ -7,7 +7,6 @@ module.exports = {
     return new Promise((req, res) => {
 
       let query = "https://cors-anywhere.herokuapp.com/http://api.eventful.com/json/events/search?location=Orlando&app_key=jMgXTBXqCM9tPCNb"
-      console.log("hello");
 
       axios.get(query).then(function (response) {
 

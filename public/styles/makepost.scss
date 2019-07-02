@@ -1,0 +1,21 @@
+$backgroundImg: url("../assets/images/wp3416319.jpg");
+
+body {
+    background: $backgroundImg
+};
+
+.navBar {
+    border-style: solid;
+    border-width: 5px;
+    border-color: orange;
+    border-radius: 20px;
+    background-color: black
+}
+
+#sign{
+    margin-left: -5%
+}
+
+#make{
+    margin-right: -3%
+}

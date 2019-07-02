@@ -45,7 +45,6 @@ $(document).ready(function() {
       })
         .done(function() {
           window.location.replace("/home");
-          // If there's an error, handle it by throwing up a bootstrap alert
         })
         .fail(handleLoginErr);
     }

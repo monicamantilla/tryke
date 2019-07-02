@@ -1,5 +1,7 @@
 var db = require("../models");
 
+var eventful = require("../public/js/eventful.js");
+
 module.exports = function (app) {
   // GET route for getting all of the posts
   app.get("/api/posts", function (req, res) {
@@ -80,23 +82,8 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/home", function (req, res) {
-    axios.get("http://api.eventful.com/json/events/search?location=Orlando&app_key=jMgXTBXqCM9tPCNb")
-      .then(function (response) {
-
-        console.log(response.data.events.event[0].description);
-
-      });
-
-    var response = response.data.events.event
-
-    for (var i = 0; i < 10; i++) {
-      var title = document.createElement("h1").text(response[i].title)
-      var description = document.createElement("h1").text(response[i].description);
-      var image = document.createElement("IMG").attr("src", response.image);
-
-    }
-    document.getElementById("events").appendChild(title, description, image)
+  app.post("/home", function (req, res) {
+   eventful.searchEvent().then(data => res.json(data))
   })
 };
 

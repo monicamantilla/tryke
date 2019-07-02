@@ -1,3 +1,13 @@
+
+function loadEvents(){
+  $.post("/home").then(data => {
+    document.createElement("h1").text(title)
+    document.createElement("h1").text(description);
+    document.createElement("IMG").attr(image);
+  })
+}
+
+
 $(document).ready(function() {
   var homeContainer = $(".home-container");
   var posts;
